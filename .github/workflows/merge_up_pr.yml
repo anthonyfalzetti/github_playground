@@ -1,0 +1,18 @@
+name: Create a merge up PR
+run-name: Create a merge up PR
+on:
+  pull_request:
+    types:
+      - opened
+    branches:
+      - 'v*'
+
+jobs:
+  create_merge_up_pr:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: List maintenance branches
+        run: echo "git branch"
